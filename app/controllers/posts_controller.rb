@@ -8,10 +8,7 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
   
-  def show
-    @comment = Comment.new
-   
-  end
+  def show; end
   
   def new
     @post = Post.new
@@ -19,6 +16,7 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params)
+    @post.creator = User.first
     
     if @post.save
       flash[:notice] = "Your post was created"
@@ -28,11 +26,10 @@ class PostsController < ApplicationController
     end
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
-   
+
     if @post.update(post_params)
       flash[:notice] = "The post was updated."
       redirect_to posts_path
