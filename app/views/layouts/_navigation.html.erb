@@ -25,6 +25,15 @@
     </li>
   </ul>
 </div>
+<% if logged_in? %>
 <div class='nav-item'>
   <%= link_to 'New Post', new_post_path, class: 'btn btn-success btn-small' %>
 </div>
+<div class='nav-item'>
+  <%= link_to 'Log out', logout_path, class: 'btn btn-small' %>
+</div>
+<% else # logged out condition%>
+<div class='nav-item'>
+  <%= link_to 'Log in', login_path, class: 'btn btn-small' %>
+</div>
+<% end %>
