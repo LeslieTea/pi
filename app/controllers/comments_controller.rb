@@ -1,19 +1,11 @@
 class CommentsController < ApplicationController
+  before_action :require_user
   
-  def index
-  end
-  
-  def show
-  end
-  
-  def new
-    
-  end
-  
+ 
   def create
     @post = Post.find(params[:post_id])
     @comment = @post.comments.build(params.require(:comment).permit(:body))
-    @comment.creator = User.first #TODO FIX AFTER AUTHENTICATION
+    @comment.creator = current_user 
     
     if @comment.save
       flash[:notice] = "Your comment was added"

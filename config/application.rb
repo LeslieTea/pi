@@ -22,5 +22,6 @@ module PostitTemplate
 
     # Tealeaf note: Bootstrap sass gem addition
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
+    config.active_record.default_timezone = :local
   end
 end
