@@ -2,9 +2,6 @@
   <li>
     <%= link_to "Postit!", root_path, :class => 'brand' %>
   </li>
-  <li>
-    <%= link_to 'link', '' %>
-  </li>
 </ul>
 <div class='btn-group nav-item'>
   <%= link_to '#', class: 'btn btn-small dropdown-toggle', 'data-toggle' => 'dropdown' do %>
@@ -59,9 +56,15 @@
 </div>
 <% else # logged out condition%>
 <div class='nav-item'>
+  <ul>
+  <li>
   <%= link_to 'Register', register_path, class: 'btn btn-success btn-small' %>
+  </li>
 </div>
 <div class='nav-item'>
+  <li>
   <%= link_to 'Log in', login_path, class: 'btn btn-small' %>
+  </li>
 </div>
+</ul>
 <% end %>
