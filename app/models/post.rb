@@ -1,4 +1,6 @@
 class Post < ActiveRecord::Base
+    #include Voteable
+  
     belongs_to :creator, foreign_key: 'user_id', class_name: 'User'
     has_many :comments
     has_many :post_categories
@@ -10,9 +12,9 @@ class Post < ActiveRecord::Base
     validates :url, presence: true, uniqueness: true
     
     before_save :generate_slug!
-
+    
     def total_votes
-      up_votes - down_votes
+      self.up_votes - self.down_votes
     end
     
     def up_votes

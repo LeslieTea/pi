@@ -14,7 +14,7 @@ class Category < ActiveRecord::Base
       the_slug = to_slug(self.name)
       category = Category.find_by slug: the_slug
       count = 2
-      while post && post != self
+      while category && category != self
         the_slug = append_suffix(the_slug, count)
         category = Category.find_by slug: the_slug
         count += 1
