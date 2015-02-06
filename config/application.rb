@@ -8,9 +8,8 @@ Bundler.require(:default, Rails.env)
 
 module PostitTemplate
   class Application < Rails::Application
-  
-    config.autoload_paths += %W('{#config.root}')
- 
+    
+    config.time_zone = 'Central Time (US & Canada)'
     config.assets.precompile += %w(*.png *.jpg *.jpeg *.gif)
  
 end
